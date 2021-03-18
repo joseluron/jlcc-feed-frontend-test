@@ -11,7 +11,6 @@ import PostCardLink from '@/PostCardLink'
 import brandColors from '@/constants/brandColors'
 
 const PostCard = ({ post, setSidepanelContent }) => {
-  console.log('post', post)
   return (
     <div className="col-span-3">
       <div>
@@ -30,6 +29,7 @@ const PostCard = ({ post, setSidepanelContent }) => {
         <p>{post.engagement_score}</p>
       </div>
       <div className="flex">
+        {/* TODO: make both buttons equal size but keep the same gap between them. */}
         <button
           className="h-12 bg-green mr-6 flex-grow"
           onClick={() => {
