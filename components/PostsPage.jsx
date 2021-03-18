@@ -19,7 +19,7 @@ const PostsPage = () => {
     <>
       <div className="grid grid-cols-12 gap-4">
         {posts.map((post) => {
-          return <PostCard post={post} setSidepanelContent={setSidepanelContent} />
+          return <PostCard post={post} />
         })}
       </div>
       <Sidepanel content={sidepanelContent} setContent={setSidepanelContent} />

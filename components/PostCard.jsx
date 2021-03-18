@@ -10,7 +10,7 @@ import PostCardLink from '@/PostCardLink'
 
 import brandColors from '@/constants/brandColors'
 
-const PostCard = ({ post, setSidepanelContent }) => {
+const PostCard = ({ post }) => {
   return (
     <div className="col-span-3">
       <div>
@@ -28,12 +28,13 @@ const PostCard = ({ post, setSidepanelContent }) => {
         <p>Score</p>
         <p>{post.engagement_score}</p>
       </div>
+      {/* TODO: make both buttons equal size but keep the same gap between them. */}
       <div className="flex">
-        {/* TODO: make both buttons equal size but keep the same gap between them. */}
         <button
           className="h-12 bg-green mr-6 flex-grow"
           onClick={() => {
-            setSidepanelContent(<PostCardLink post={post} />)
+            // TODO: open the sidepanel with PostCardLink as its content
+            console.log('Open PostCardLink')
           }}
         >
           <LinkIcon className="w-4 h-auto" />
@@ -41,7 +42,8 @@ const PostCard = ({ post, setSidepanelContent }) => {
         <button
           className="h-12 bg-green flex-grow"
           onClick={() => {
-            setSidepanelContent(<PostCardData post={post} />)
+            // TODO: open the sidepanel with PostCardData as its content
+            console.log('Open PostCardData')
           }}
         >
           <InsightsIcon className="w-4 h-auto" />
