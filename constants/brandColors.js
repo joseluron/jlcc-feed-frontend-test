@@ -2,6 +2,7 @@ const white = '#F4F4F4'
 const black = '#0D1311'
 const green = '#03D8B2'
 const red = '#FA5450'
+const blue = '#5BC0EB'
 const greyLight = '#E7E9E8'
 const grey = '#C8CBCA'
 const greyDark = '#7F8382'
@@ -12,6 +13,7 @@ const brandColors = {
   black,
   green,
   red,
+  blue,
   greyLight,
   grey,
   greyDark,
@@ -33,7 +35,7 @@ const brandColors = {
     text: white,
   },
   twitter: {
-    bg: '#5BC0EB',
+    bg: blue,
     text: black,
   },
   spotify: {
