@@ -2,7 +2,7 @@
 
 One of the pages on the Feed app shows the users posts from different platform, and some data about these posts. Your task is to build this page based on the [supplied designs](#designs).
 
-We don't expect you to spend more than a couple of hours on this task. If you can think of any other improvements that you would make to the app that would take too long to complete in this test, make a note of them in the `CHANGES.md` file.
+We don't expect you to spend more than a 2 to 3 hours on this task. If you can think of any other improvements that you would make to the app that would take too long to complete in this test, make a note of them in the `CHANGES.md` file.
 
 ## Getting started
 
