@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FacebookIcon from '@/FacebookIcon'
-import InstagramIcon from '@/InstagramIcon'
+import PlatformIcon from '@/PlatformIcon'
+import CustomDate from '@/CustomDate'
+import PostImage from '@/PostImage'
 import LinkIcon from '@/LinkIcon'
 import TickIcon from '@/TickIcon'
 import InsightsIcon from '@/InsightsIcon'
@@ -11,34 +12,28 @@ import PostCardLink from '@/PostCardLink'
 
 import brandColors from '@/constants/brandColors'
 
-const PostCard = ({ post }) => {
-  console.log('post', post)
+const PostCard = ({ post, postIndex, setPostPromotion }) => {
   return (
     <div className="col-span-3">
 
       <div>
-        {/* TODO: change icon based on the post platform */}
-        <FacebookIcon className="h-4 w-auto" fill={brandColors.facebook.bg} />
-        {/* TODO: format date properly */}
-        <p>{post.published_time}</p>
+        <PlatformIcon platform={post.platform} />
+        <CustomDate date={new Date(post.published_time)}/>
       </div>
 
       <div className="rounded-dialogue mb-4">
-        {/* TODO: if the post is a story, restrict the height of the tall image and use a blurred version as a background */}
-        {/* TODO: use fallback image if the first image has an error */}
-        <img src={post.thumbnails[0].url} />
+        <PostImage image={post.thumbnails[0].url} postType={post.post_type} />
       </div>
       <div className="p-2 border border-solid border-green">
         <p>Score</p>
         <p>{post.engagement_score}</p>
       </div>
 
-      {/* TODO: Make this button work */}
       <button
         className="bg-blue p-2"
-        onClick={() => {
-          console.log('Update `post.promotion_enabled`')
-        }}
+        onClick={() => 
+          setPostPromotion(postIndex)
+        }
       >
         <p>Enable</p>
         <div className="w-5 h-5 p-1 bg-white">
@@ -74,7 +69,9 @@ const PostCard = ({ post }) => {
 }
 
 PostCard.propTypes = {
-
+  post: PropTypes.object,
+  postIndex: PropTypes.number,
+  setPostPromotion: PropTypes.func
 }
 
 export default PostCard

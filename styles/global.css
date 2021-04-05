@@ -44,3 +44,8 @@ em,
   color: var(--text-color);
   background: var(--yellow);
 }
+
+.filter-blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}

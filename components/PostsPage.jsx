@@ -15,11 +15,23 @@ const PostsPage = () => {
 
   const [sidepanelContent, setSidepanelContent] = React.useState(null)
 
+  const setPostPromotion = (postIndex) => {
+    const allPosts = [...posts]
+
+    let toModifyPost = {...allPosts[postIndex]};
+
+    toModifyPost.promotion_enabled = !toModifyPost.promotion_enabled;
+
+    allPosts[postIndex] = toModifyPost;
+
+    setPosts(allPosts);
+  }
+
   return (
     <>
       <div className="grid grid-cols-12 gap-4">
-        {posts.map((post) => {
-          return <PostCard post={post} />
+        {posts.map((post, index) => {
+          return <PostCard post={post} postIndex={index} setPostPromotion={setPostPromotion} key={index} />
         })}
       </div>
       <Sidepanel content={sidepanelContent} setContent={setSidepanelContent} />
