@@ -5,7 +5,6 @@ const PostImage = ({ image, postType }) => {
     const fallbackImage = '/images/post-image-2.jpg';
 
     const getErrorImage = (e) => {
-        console.log("Error: ", e);
         e.target.src = fallbackImage;
     }
     
