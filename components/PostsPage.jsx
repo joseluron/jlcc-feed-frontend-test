@@ -31,7 +31,7 @@ const PostsPage = () => {
     <>
       <div className="grid grid-cols-12 gap-4">
         {posts.map((post, index) => {
-          return <PostCard post={post} postIndex={index} setPostPromotion={setPostPromotion} key={index} />
+          return <PostCard post={post} postIndex={index} setPostPromotion={setPostPromotion} setSidepanelContent={setSidepanelContent} key={index} />
         })}
       </div>
       <Sidepanel content={sidepanelContent} setContent={setSidepanelContent} />

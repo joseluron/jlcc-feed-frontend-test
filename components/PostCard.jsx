@@ -12,11 +12,11 @@ import PostCardLink from '@/PostCardLink'
 
 import brandColors from '@/constants/brandColors'
 
-const PostCard = ({ post, postIndex, setPostPromotion }) => {
+const PostCard = ({ post, postIndex, setPostPromotion, setSidepanelContent }) => {
   return (
     <div className="col-span-3">
 
-      <div>
+      <div className="flex justify-between">
         <PlatformIcon platform={post.platform} />
         <CustomDate date={new Date(post.published_time)}/>
       </div>
@@ -24,13 +24,13 @@ const PostCard = ({ post, postIndex, setPostPromotion }) => {
       <div className="rounded-dialogue mb-4">
         <PostImage image={post.thumbnails[0].url} postType={post.post_type} />
       </div>
-      <div className="p-2 border border-solid border-green">
+      <div className="p-2 border border-solid border-green rounded-lg mb-4 flex justify-between" >
         <p>Score</p>
         <p>{post.engagement_score}</p>
       </div>
 
       <button
-        className="bg-blue p-2"
+        className="bg-blue p-2 w-full rounded-lg flex justify-between mb-4"
         onClick={() => 
           setPostPromotion(postIndex)
         }
@@ -43,23 +43,16 @@ const PostCard = ({ post, postIndex, setPostPromotion }) => {
         </div>
       </button>
 
-      {/* TODO: make both buttons equal size but keep the same gap between them. */}
-      <div className="flex">
+      <div className="grid grid-cols-2 gap-2">
         <button
-          className="h-12 bg-green mr-6 flex-grow"
-          onClick={() => {
-            // TODO: open the sidepanel with PostCardLink as its content
-            console.log('Open PostCardLink')
-          }}
+          className="h-12 bg-green flex-grow rounded-sm flex justify-center items-center"
+          onClick={() => setSidepanelContent(<PostCardLink post={post} />) }
         >
           <LinkIcon className="w-4 h-auto" />
         </button>
         <button
-          className="h-12 bg-green flex-grow"
-          onClick={() => {
-            // TODO: open the sidepanel with PostCardData as its content
-            console.log('Open PostCardData')
-          }}
+          className="h-12 bg-green flex-grow rounded-sm flex justify-center items-center"
+          onClick={() => setSidepanelContent(<PostCardData post={post} />) }
         >
           <InsightsIcon className="w-4 h-auto" />
         </button>
@@ -71,7 +64,8 @@ const PostCard = ({ post, postIndex, setPostPromotion }) => {
 PostCard.propTypes = {
   post: PropTypes.object,
   postIndex: PropTypes.number,
-  setPostPromotion: PropTypes.func
+  setPostPromotion: PropTypes.func,
+  setSidepanelContent: PropTypes.func
 }
 
 export default PostCard

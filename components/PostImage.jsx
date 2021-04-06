@@ -12,7 +12,7 @@ const PostImage = ({ image, postType }) => {
     const getPostImage = () => {
         if (!image) {
             return (
-                <div className="w-56 h-56">
+                <div className="w-58 h-58">
                     <img src={fallbackImage} className="rounded-lg" onError={getErrorImage} />
                 </div>
             )
@@ -20,7 +20,7 @@ const PostImage = ({ image, postType }) => {
         
         if (postType === 'story') {
             return (
-                <div className="w-56 h-56 relative">
+                <div className="w-58 h-58 relative">
                     <div style={{ 
                         backgroundImage: `url("${image}")`, 
                         backgroundPosition: 'center',
@@ -34,7 +34,7 @@ const PostImage = ({ image, postType }) => {
         }
 
         return (
-            <div className="w-56 h-56">
+            <div className="w-58 h-58">
                 <img src={image} className="rounded-lg" onError={getErrorImage} />
             </div>
         )
